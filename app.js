@@ -38,7 +38,7 @@ app.post("/", async (req, res) => {
       desc: result.Plot,
       language: result.Language,
       Image: result.Poster,
-      Ratings: result.Ratings
+      Ratings: result.Ratings,
     };
     res.render("index.ejs", { movie });
   } catch (err) {

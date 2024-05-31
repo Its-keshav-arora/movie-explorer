@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Explorer</title>
@@ -21,65 +21,97 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-</head>
-<body>
+  </head>
+  <body>
     <h1>Movie Explorer - Teevro</h1>
-    <br><br>
+    <br /><br />
     <div class="row mb-1">
-      <form
-        action="/"
-        class="needs-validation"
-        method="post"
-      >
+      <form action="/" class="needs-validation" method="post">
         <div class="col-8 offset-2 formDiv">
-          <label class="form-label searchHeading" for="title" >Teevro</label>
+          <label class="form-label searchHeading" for="title">Teevro</label>
           <input name="apikey" type="hidden" value="2104fc3e" />
-          <input style="height:2.5rem; min-width: 300px;" name="t" id="title" required class="w-75 p-2 rounded" type="text" placeholder="Search by Movie Title" />
-          <button type="submit"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
+          <input
+            style="height: 2.5rem; min-width: 300px"
+            name="t"
+            id="title"
+            required
+            class="w-75 p-2 rounded"
+            type="text"
+            placeholder="Search by Movie Title"
+          />
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+          </button>
         </div>
       </form>
     </div>
-    <br>
+    <br />
 
     <div class="movie">
       <div class="box">
-        <% try { %>
-          <% if(! (movie) || Object.keys(movie).length === 0) { %>
-          <% }
-          else { %>
-            
-              <div class="movie_image">
-              <img style="border-radius: 1rem; height:100%;" src="<%= movie.Image %>" alt="movie_image" loading="eager">
-            </div>
-            
-            <div class="content" style="width: 80%;">
-              <h2 style=" text-shadow: 1px 1px 2px white; text-align: center;" class="card-title"><a target="_blank" href='https://www.google.com/search?q=<%= movie.title %>+<%= movie.Released.slice(7,11) %>+movie'><u><%= movie.title %> (<%= movie.Released.slice(7,11) %>) </u></a></h2>
-              <br>
-              <p class="desc" style="width:90%; padding-right: 2rem;">Description: <%= movie.desc %></p>
-              <p>Duration: <%= parseInt((movie.duration.slice(0,3) / 60)) + " hr " + movie.duration.slice(0,3) % 60 + " minutes " %></p>
-  
-              <p>Genre: <%= movie.Genre %></p>
-              <p>Director: <%= movie.Director %></p>
-              <p>Actors: <%= movie.Actor %></p>
-              <p>Language: <%= movie.language %></p>
-              <p>Ratings: </p>
-              <% for(let key in movie) { %>
-                <% if (key === 'Ratings' && Array.isArray(movie[key])) { %>
-                    <ul>
-                      <% for (let i in movie[key]) { %>
-                        <li>
-                          <strong><%= movie[key][i].Source %>:</strong> <%= movie[key][i].Value %>
-                        </li>
-                      <% } %>
-                    </ul>
-                <% } %>
-              <% } %>
-            </div>
+        <% try { %> <% if(! (movie) || Object.keys(movie).length === 0) { %> <%
+        } else { %>
+
+        <div class="movie_image">
+          <img
+            style="border-radius: 1rem; height: 100%"
+            src="<%= movie.Image %>"
+            alt="movie_image"
+            loading="eager"
+          />
+        </div>
+
+        <div class="content" style="width: 80%">
+          <h2
+            style="text-shadow: 1px 1px 2px white; text-align: center"
+            class="card-title"
+          >
+            <a
+              target="_blank"
+              href="https://www.google.com/search?q=<%= movie.title %>+<%= movie.Released.slice(7,11) %>+movie"
+              ><u><%= movie.title %> (<%= movie.Released.slice(7,11) %>) </u></a
+            >
+          </h2>
+          <br />
+          <p class="desc" style="width: 90%; padding-right: 2rem">
+            Description: <%= movie.desc %>
+          </p>
+          <p>
+            Duration: <%= parseInt((movie.duration.slice(0,3) / 60)) + " hr " +
+            movie.duration.slice(0,3) % 60 + " minutes " %>
+          </p>
+
+          <p>Genre: <%= movie.Genre %></p>
+          <p>Director: <%= movie.Director %></p>
+          <p>Actors: <%= movie.Actor %></p>
+          <p>Language: <%= movie.language %></p>
+          <p>Ratings:</p>
+          <% for(let key in movie) { %> <% if (key === 'Ratings' &&
+          Array.isArray(movie[key])) { %>
+          <ul>
+            <% for (let i in movie[key]) { %>
+            <li>
+              <strong><%= movie[key][i].Source %>:</strong> <%=
+              movie[key][i].Value %>
+            </li>
             <% } %>
-        <% } catch { %>
-        <% } %>
+          </ul>
+          <% } %> <% } %>
+        </div>
+        <% } %> <% } catch { %> <% } %>
       </div>
     </div>
-    <h3 style="color:white; text-align: center; text-decoration: none;">made in &#10084; by <a target="_blank" style="color: #FFD700; text-decoration: none; text-shadow: 2px 2px 20px #000;" href="https://www.linkedin.com/in/keshavarora2006/">Keshav Arora</a></h3>
-</body>
+    <h3 style="color: white; text-align: center; text-decoration: none">
+      made in &#10084; by
+      <a
+        target="_blank"
+        style="
+          color: #ffd700;
+          text-decoration: none;
+          text-shadow: 2px 2px 20px #000;
+        "
+        href="https://www.linkedin.com/in/keshavarora2006/"
+        >Keshav Arora</a>
+    </h3>
+  </body>
 </html>
