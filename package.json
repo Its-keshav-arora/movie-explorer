@@ -7,10 +7,10 @@
     "path": "^0.12.7"
   },
 
-    "name": "movie-explorer",
-    "version": "1.0.0",
-    "main": "app.js",
-    "scripts": {
-      "start": "node app.js"
-}
+  "name": "my-express-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  }
 }
