@@ -23,12 +23,12 @@
     />
   </head>
   <body>
-    <h1>Movie Explorer - Teevro</h1>
+    <h1>Movie Explorer</h1>
     <br /><br />
     <div class="row mb-1">
       <form action="/" class="needs-validation" method="post">
         <div class="col-8 offset-2 formDiv">
-          <label class="form-label searchHeading" for="title">Teevro</label>
+          <label class="form-label searchHeading" for="title">Search</label>
           <input name="apikey" type="hidden" value="2104fc3e" />
           <input
             style="height: 2.5rem; min-width: 300px"
@@ -52,7 +52,11 @@
         <% try { %> <% if(! (movie) || Object.keys(movie).length === 0) { %> <%
         } else { %>
 
-        <div class="movie_image">
+        <div class="movie_image d-block">
+          <% if (!movie.Image) { %>
+             <% movie.Image = "/Error.gif" %> 
+             <% let error = true %>
+          <% } %>
           <img
             style="border-radius: 1rem; height: 100%"
             src="<%= movie.Image %>"
@@ -101,7 +105,7 @@
         <% } %> <% } catch { %> <% } %>
       </div>
     </div>
-    <h3 style="color: white; text-align: center; text-decoration: none">
+    <h3 style="color: white; text-align: center; text-decoration: none;">
       made in &#10084; by
       <a
         target="_blank"
