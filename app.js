@@ -10,7 +10,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
-// home page of our web app
+// home page of our web app:
 app.get("/", (req, res) => {
   res.render("index.ejs", { movie: {} }); // Initialize movie object with empty object
 });
